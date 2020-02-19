@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmited()" #userForm="ngForm">
+<div class="blok">
+    <h2>Привет!</h2> 
+    <label for="name">Как тебя зовут?</label>
+        <input required #Name="ngModel" 
+        type="text"  
+        (ngModel)="user.Name" 
+        name="Name" 
+        class="form-control" 
+        id="name" 
+        placeholder="Введите имя">
+        <div class="alert alert-danger" 
+        [hidden]="Name.valid || Name.pristine">
+            Поле обязательно для заполнения
+          </div>        
+        <button type="submit" 
+        [disabled]="!userForm.form.valid" 
+        (click)="goHome()">Войти</button>
+  </div>
+</form>
